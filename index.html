@@ -15,10 +15,19 @@
         <button onclick="botaoAlert()" class="button">Alert</button>
         <button onclick="botaoPrompt()" class="button">Prompt</button>
         <button onclick="botaoSoma()" class="button">Soma</button> -->
+        <h3>Digite seu nome para exibir no console:</h3>
         <input type="text">
         <button onclick="pegaInput()">Enviar</button>
-        <input type="number">
+        <h3>Digite qualquer número para ver o valor dobrado:</h3>
+        <input type="number" id="valorNumero">
         <button onclick="enviarNumero()">Enviar</button>
+        <h3>Clique para digitar 3 números e ver a média deles</h3>
+        <button onclick="mediaValor()">Valor da média</button>
+        <h3>Clique para digitar 2 números e verificar o maior entre eles</h3>
+        <button onclick="maiorNumero()">Maior número</button>
+        <h3>Digite qualquer número para ver o valor multiplicado por ele mesmo</h3>
+        <input type="text" id="valorMultiplicado">
+        <button onclick="valorMultiplicado()">Enviar</button>
     </main>
 
       <script src="app.js"></script>
