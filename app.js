@@ -1,52 +1,28 @@
-let numeroSecreto = gerarNumeroAleatorio();
-let tentativas = 1;
-
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
 }
 
-function exibirMensagemInicial() {
-    exibirTextoNaTela('h1', 'Jogo do número secreto');
-    exibirTextoNaTela('p', 'Escolha um número entre 1 a 10');
-}
+exibirTextoNaTela('h1', 'Desafio 3');
 
-exibirMensagemInicial();
+let valorAltura = document.querySelector("input[name='altura']").value;
+let valorPeso = document.querySelector("input[name='peso']").value;
 
-function gerarNumeroAleatorio() {
-   return parseInt(Math.random() * 10 + 1);
-}
+function imc(altura, peso){
+    let valorImc = peso / (altura * altura);
 
-function verificarChute() {
-    let chute = document.querySelector('input').value;
-    let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
-    let mensagem = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
-
-    if (chute == numeroSecreto) {
-        exibirTextoNaTela('h1', 'Acertou!');
-        exibirTextoNaTela('p', mensagem);
-        document.getElementById('reiniciar').removeAttribute('disabled');
-    } else {
-        if(chute > numeroSecreto) {
-            exibirTextoNaTela('p', 'O número secreto é menor');
-        } else {
-            exibirTextoNaTela('p', 'O número secreto é maior');
-        }
-        tentativas++;
-        limparCampo();
+    if(valorImc < 18.5) {
+        alert("Cuidado! Você está abaixo do peso.");
+    } else if(valorImc >= 18.5 && valorImc <= 24.9) {
+        alert("Parabéns! Você está no peso ideal.");
+    } else if(valorImc >= 25 && valorImc <= 29.9) {
+        alert("Cuidado! Você está levemente acima do peso.");
+    } else if(valorImc >= 30 && valorImc <= 39.9){
+        alert("Alerta! Você está acima do peso.");
+    } else if(valorImc >= 40){
+        alert("Perigo! Você está com obsidade mórbida.");
     }
+    console.log("Depois do IF")
 }
 
-function limparCampo() {
-    chute = document.querySelector('input');
-    chute.value = '';
-}
-
-function reiniciarJogo() {
-    numeroSecreto = gerarNumeroAleatorio();
-    limparCampo();
-    tentativas = 1
-    exibirMensagemInicial();
-    document.getElementById('reiniciar').setAttribute('disabled', true);
-    
-}
+imc(valorAltura, valorPeso);
