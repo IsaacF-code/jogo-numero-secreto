@@ -5,11 +5,18 @@ function exibirTextoNaTela(tag, texto) {
 
 exibirTextoNaTela('h1', 'Desafio 3');
 
-let valorAltura = document.querySelector("input[name='altura']").value;
-let valorPeso = document.querySelector("input[name='peso']").value;
+// -------- Questão 1 ----------
 
-function imc(altura, peso){
-    let valorImc = peso / (altura * altura);
+// Maneira recebendo o valor no input
+
+function imc(){
+    let valorAltura = document.querySelector("input[name='altura']").value;
+    let valorPeso = document.querySelector("input[name='peso']").value;
+    let alturaMetros = valorAltura / 100;
+    let valorImc = valorPeso / (alturaMetros * alturaMetros);
+    console.log(valorPeso)
+    console.log(alturaMetros)
+    console.log(valorImc.toFixed(2))
 
     if(valorImc < 18.5) {
         alert("Cuidado! Você está abaixo do peso.");
@@ -25,4 +32,28 @@ function imc(altura, peso){
     console.log("Depois do IF")
 }
 
-imc(valorAltura, valorPeso);
+// Maneira recebendo parâmetros
+
+function calcularImc(altura, peso){
+    let alturaMetros = altura / 100;
+    let valorImc = peso / (alturaMetros * alturaMetros);
+    console.log(valorImc.toFixed(2)); // toFixed -> Serve para definir quantos números depois da vírgula irão ter
+}
+
+calcularImc(180, 82);
+
+// Questão 2
+
+function calculaFatorial(numero){
+    let contador = 1;
+    let numeroFatorial;
+
+    while(contador < numero){
+        numeroFatorial = numero * contador;
+        contador++;
+    }
+    console.log(numeroFatorial);
+    console.log(contador)
+}
+
+calculaFatorial(5);
